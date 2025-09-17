@@ -1,13 +1,12 @@
-package murach.cart;
+package com.chap9_2;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import com.chap9_2.Product;
+import com.chap9_2.ProductIO;
 
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import java.io.IOException;
 import java.util.ArrayList;
-
-import murach.data.ProductIO;
-import murach.business.Product;
 
 public class ProductsServlet extends HttpServlet {
 

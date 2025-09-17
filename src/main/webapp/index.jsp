@@ -1,12 +1,39 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>JSP - Hello World</title>
+    <meta charset="utf-8">
+    <title>Murach's Java Servlets and JSP</title>
+    <link rel="stylesheet" href="styles/main.css" type="text/css"/>
 </head>
 <body>
-<h1><%= "Hello World!" %></h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<div class="container">
+    <h1>CD List</h1>
+
+    <table class="product-table">
+        <thead>
+        <tr>
+            <th>Description</th>
+            <th class="right">Price</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach var="product" items="${products}">
+            <tr>
+                <td><c:out value='${product.description}'/></td>
+                <td class="right">${product.priceCurrencyFormat}</td>
+                <td>
+                    <form action="cart" method="post">
+                        <input type="hidden" name="productCode" value="<c:out value='${product.code}'/>">
+                        <input type="submit" value="Add To Cart" class="btn-submit">
+                    </form>
+                </td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
